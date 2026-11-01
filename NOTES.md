@@ -14,17 +14,18 @@ Use this file however you like while you work. Things we will find useful:
 
 - the second command I gave to Claude, and that I always give to any LLM agent I work with, is to act as a junior engineer and I will be the senior engineer. MY job is to make the app work correctly, including writing as much code as I can. If I get stuck, I pass the problem to Claude, have it generate a code solution for me, then I essentially do mini code reviews where I vet what Claude wrote and then paste it in myself so that I ALWAYS know what is being shipped.
 
-### Assumptions (for this specific exercise)
+### Assumptions
 
 - This is for Loading only. Unloading would be handled in a separate session.
 - Driver is adding an ingredient to the scale but not removing anything.
+- Drivers are ONLY loading this one bucket until it's completed... no stopping one session and starting on a different one, then coming back to a previsou session, etc etc.
 
 ### Possible improvements
 
-- Ingredients should be explicitly marked as "done" in some way, most likely just marking a boolean 'true', instead of advancing an ingredient index.
+- Ingredients should be explicitly marked as "done" in some way, most likely just marking a boolean 'true', instead of advancing an ingredient index. The ingredient index advancement works, but isn't a very robust solution and is implicit.
 - I made a very very tiny memory improvement in `sendTarget()`
 
 ### Questions
 
-1. How long of a gap still counts as resuming the same ingredient?
+1. Keeping the old anchor after a restart assumes the mixer is in the same state it was when the app died. How long of a gap still counts as resuming the same ingredient?
 2. How would a driver UNload something from the scale if they overloaded an ingredient? (assuming their trucks aren't always carrying the EXACT weight for one single mixing session)
