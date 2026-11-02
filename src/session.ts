@@ -24,7 +24,6 @@ export class LoadingSession {
   /** Lbs credited to the current ingredient before this process started. */
   // Explanation: dead state after fixing the snapshot restore -> private carriedLbs = 0;
   private loadedLbs = 0;
-  private isReady = false;
   private complete = false;
   // Explanation: Added to accrue jitter readings
   private settledTicks = 0;
