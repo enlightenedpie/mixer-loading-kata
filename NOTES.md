@@ -20,6 +20,7 @@ Use this file however you like while you work. Things we will find useful:
 - Driver is adding an ingredient to the scale but not removing anything.
 - Drivers are ONLY loading this one bucket until it's completed... no stopping one session and starting on a different one, then coming back to a previsou session, etc etc.
 - Jitter / shake / bounce is consistent for this exercise, but not in the real world.
+- Jitter / bounce is only at the beginning of the session, otherwise we cann assume the bucket has settled and further readings are actual product being loaded.
 
 ### Possible improvements
 
@@ -31,3 +32,4 @@ Use this file however you like while you work. Things we will find useful:
 1. Keeping the old anchor after a restart assumes the mixer is in the same state it was when the app died. How long of a gap still counts as resuming the same ingredient?
 2. How would a driver UNload something from the scale if they overloaded an ingredient? (assuming their trucks aren't always carrying the EXACT weight for one single mixing session)
 3. What happens if the jitter / bounce is very soft and smooth in the first few samples and then gets rough after the `stableTicks` threshold? (this could use timers with timeouts before advancing)
+4. Was `carriedLbs` a red herring? After I fixed Task 2, `carriedLbs` became dead state. I felt weird removing it, so I'm wondering if I missed something or it was a purposeful ruse.
